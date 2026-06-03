@@ -5,6 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig(({ mode }) => ({
+  server: {
+    allowedHosts: true,
+    host: "0.0.0.0",
+  },
   plugins: [
     tanstackStart({
       server: { entry: "src/server.ts" },
