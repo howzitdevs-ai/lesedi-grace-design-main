@@ -1,0 +1,121 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", "Open Sans", system-ui, sans-serif;
+  --font-display: "Montserrat", "Inter", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-emergency: var(--emergency);
+  --color-emergency-foreground: var(--emergency-foreground);
+  --color-surface: var(--surface);
+
+  --shadow-soft: 0 1px 2px oklch(0.3 0.04 230 / 0.06), 0 8px 24px oklch(0.3 0.04 230 / 0.08);
+  --shadow-card: 0 1px 3px oklch(0.3 0.04 230 / 0.05), 0 12px 40px oklch(0.3 0.04 230 / 0.06);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Updated to match logo colors: Blue (#1E3A8A) and Gold (#FACC15) */
+  --background: oklch(0.995 0.005 255);
+  --foreground: oklch(0.18 0.04 255);
+
+  --surface: oklch(0.97 0.01 255);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.04 255);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.04 255);
+
+  /* Precise Logo Blue (#1E3A8A) */
+  --primary: oklch(0.32 0.09 255);
+  --primary-foreground: oklch(0.99 0.005 255);
+
+  /* Precise Logo Gold (#FACC15) */
+  --accent: oklch(0.86 0.18 90);
+  --accent-foreground: oklch(0.20 0.04 255);
+
+  --secondary: oklch(0.95 0.015 255);
+  --secondary-foreground: oklch(0.32 0.09 255);
+
+  --muted: oklch(0.96 0.01 255);
+  --muted-foreground: oklch(0.48 0.03 255);
+
+  /* Matching logo gold (#FACC15) for all primary actions */
+  --emergency: oklch(0.86 0.18 90);
+  --emergency-foreground: oklch(0.20 0.04 255);
+
+  --destructive: oklch(0.58 0.22 27);
+  --destructive-foreground: oklch(0.99 0.005 255);
+
+  --border: oklch(0.91 0.015 255);
+  --input: oklch(0.92 0.015 255);
+  --ring: oklch(0.42 0.09 255);
+
+  --chart-1: oklch(0.32 0.09 255);
+  --chart-2: oklch(0.86 0.18 90);
+  --chart-3: oklch(0.7 0.05 255);
+  --chart-4: oklch(0.5 0.06 255);
+  --chart-5: oklch(0.75 0.07 255);
+
+  --sidebar: oklch(0.99 0.005 255);
+  --sidebar-foreground: oklch(0.18 0.04 255);
+  --sidebar-primary: oklch(0.32 0.09 255);
+  --sidebar-primary-foreground: oklch(0.99 0.005 255);
+  --sidebar-accent: oklch(0.95 0.015 255);
+  --sidebar-accent-foreground: oklch(0.32 0.09 255);
+  --sidebar-border: oklch(0.91 0.015 255);
+  --sidebar-ring: oklch(0.42 0.09 255);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
