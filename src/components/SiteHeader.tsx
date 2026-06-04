@@ -22,7 +22,7 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close on Escape key
+  // Close menu on Escape key
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(false);
@@ -33,6 +33,7 @@ export function SiteHeader() {
 
   return (
     <>
+      {/* ─── Main header bar ─────────────────────────────────────────────── */}
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           scrolled
@@ -88,25 +89,44 @@ export function SiteHeader() {
               </Link>
             </div>
 
-            {/* Mobile hamburger — z-[60] keeps it above the backdrop overlay */}
-            <button
-              type="button"
-              aria-label={open ? "Close menu" : "Open menu"}
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              onClick={() => setOpen((o) => !o)}
-              className="md:hidden relative z-[60] inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors"
-            >
-              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </button>
+            {/*
+             * Spacer — keeps the flex layout balanced on mobile so the logo
+             * stays left-aligned.  The REAL hamburger button lives OUTSIDE
+             * the header element (see below) to escape the header's stacking
+             * context which was swallowing touch/click events in some browsers.
+             */}
+            <div className="md:hidden w-9 h-9" aria-hidden="true" />
           </div>
         </div>
       </header>
 
-      {/* ── Mobile menu: rendered OUTSIDE <header> so backdrop-filter stacking
-           context cannot clip or block it.  Fixed to top-16 (= 64px header height). ── */}
+      {/*
+       * ─── Hamburger button ──────────────────────────────────────────────
+       * MUST live outside <header> so it sits in the ROOT stacking context
+       * with its own z-[60].  The header's sticky+z-50 stacking context was
+       * trapping the button's z-index and causing touch events to fail on
+       * mobile browsers (especially with backdrop-filter on the header).
+       *
+       * Visually aligned with the header: top-[14px] centres a 36px button
+       * inside the 64px (h-16) header row; right-4 matches the px-4 padding.
+       */}
+      <button
+        type="button"
+        aria-label={open ? "Close menu" : "Open menu"}
+        aria-expanded={open}
+        aria-controls="mobile-menu"
+        onClick={() => setOpen((o) => !o)}
+        className="md:hidden fixed top-[14px] right-4 z-[60] inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors"
+        style={{ touchAction: "manipulation" }}
+      >
+        {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+      </button>
 
-      {/* Dimmed backdrop — click anywhere outside to close */}
+      {/*
+       * ─── Dimmed backdrop ───────────────────────────────────────────────
+       * z-[45] — below the header (z-50) so the header stays visible,
+       * but above the page content.  Tap anywhere to close the menu.
+       */}
       {open && (
         <div
           className="md:hidden fixed inset-0 z-[45] bg-black/20"
@@ -115,12 +135,26 @@ export function SiteHeader() {
         />
       )}
 
-      {/* Slide-down panel */}
+      {/*
+       * ─── Slide-down menu panel ─────────────────────────────────────────
+       * z-[48] — above the backdrop (45) but below the header (50) and
+       * the hamburger button (60).  top-16 = 64px = exact header height.
+       */}
       {open && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed inset-x-0 top-16 z-[50] bg-background border-b border-border shadow-xl animate-in slide-in-from-top-2 duration-200"
+          className="md:hidden fixed inset-x-0 top-16 z-[48] bg-background border-b border-border shadow-xl"
+          style={{
+            animation: "slideDown 0.2s ease forwards",
+          }}
         >
+          <style>{`
+            @keyframes slideDown {
+              from { opacity: 0; transform: translateY(-8px); }
+              to   { opacity: 1; transform: translateY(0); }
+            }
+          `}</style>
+
           <div className="mx-auto max-w-7xl px-4 py-4">
             <nav className="flex flex-col gap-1">
               {navLinks.map((l) => (
@@ -129,12 +163,8 @@ export function SiteHeader() {
                   to={l.to}
                   activeOptions={{ exact: l.to === "/" }}
                   onClick={() => setOpen(false)}
-                  activeProps={{
-                    className: "bg-secondary text-primary font-semibold",
-                  }}
-                  inactiveProps={{
-                    className: "text-foreground hover:bg-muted",
-                  }}
+                  activeProps={{ className: "bg-secondary text-primary font-semibold" }}
+                  inactiveProps={{ className: "text-foreground hover:bg-muted" }}
                   className="px-3 py-2.5 text-sm font-medium rounded-md transition-colors"
                 >
                   {l.label}
