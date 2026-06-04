@@ -5,7 +5,7 @@ export function FloatingContactWidget() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
       {isOpen && (
         <div className="flex flex-col gap-2 w-64 p-4 bg-card border border-border rounded-2xl shadow-xl animate-in slide-in-from-bottom-5">
           <h3 className="font-semibold text-foreground text-sm mb-1">How can we help?</h3>
