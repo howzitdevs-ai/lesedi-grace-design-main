@@ -33,7 +33,6 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* ─── Main header bar ─────────────────────────────────────────────── */}
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           scrolled
@@ -46,7 +45,7 @@ export function SiteHeader() {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2.5 group"
+              className="flex items-center gap-2.5 group relative z-50"
               onClick={() => setOpen(false)}
             >
               <img
@@ -89,61 +88,35 @@ export function SiteHeader() {
               </Link>
             </div>
 
-            {/*
-             * Spacer — keeps the flex layout balanced on mobile so the logo
-             * stays left-aligned.  The REAL hamburger button lives OUTSIDE
-             * the header element (see below) to escape the header's stacking
-             * context which was swallowing touch/click events in some browsers.
-             */}
-            <div className="md:hidden w-9 h-9" aria-hidden="true" />
+            {/* Mobile Hamburger Button */}
+            <button
+              type="button"
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen(!open)}
+              className="md:hidden relative z-50 inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors cursor-pointer"
+              style={{ touchAction: "manipulation" }}
+            >
+              {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
       </header>
 
-      {/*
-       * ─── Hamburger button ──────────────────────────────────────────────
-       * MUST live outside <header> so it sits in the ROOT stacking context
-       * with its own z-[60].  The header's sticky+z-50 stacking context was
-       * trapping the button's z-index and causing touch events to fail on
-       * mobile browsers (especially with backdrop-filter on the header).
-       *
-       * Visually aligned with the header: top-[14px] centres a 36px button
-       * inside the 64px (h-16) header row; right-4 matches the px-4 padding.
-       */}
-      <button
-        type="button"
-        aria-label={open ? "Close menu" : "Open menu"}
-        aria-expanded={open}
-        aria-controls="mobile-menu"
-        onClick={() => setOpen((o) => !o)}
-        className="md:hidden fixed top-[14px] right-4 z-[60] inline-flex items-center justify-center rounded-md p-2 text-foreground hover:bg-muted transition-colors"
-        style={{ touchAction: "manipulation" }}
-      >
-        {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-      </button>
-
-      {/*
-       * ─── Dimmed backdrop ───────────────────────────────────────────────
-       * z-[45] — below the header (z-50) so the header stays visible,
-       * but above the page content.  Tap anywhere to close the menu.
-       */}
+      {/* Dimmed backdrop */}
       {open && (
         <div
-          className="md:hidden fixed inset-0 z-[45] bg-black/20"
+          className="md:hidden fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
           onClick={() => setOpen(false)}
           aria-hidden="true"
         />
       )}
 
-      {/*
-       * ─── Slide-down menu panel ─────────────────────────────────────────
-       * z-[48] — above the backdrop (45) but below the header (50) and
-       * the hamburger button (60).  top-16 = 64px = exact header height.
-       */}
+      {/* Slide-down menu panel */}
       {open && (
         <div
           id="mobile-menu"
-          className="md:hidden fixed inset-x-0 top-16 z-[48] bg-background border-b border-border shadow-xl"
+          className="md:hidden fixed inset-x-0 top-16 z-40 bg-background border-b border-border shadow-xl"
           style={{
             animation: "slideDown 0.2s ease forwards",
           }}
@@ -155,8 +128,8 @@ export function SiteHeader() {
             }
           `}</style>
 
-          <div className="mx-auto max-w-7xl px-4 py-4">
-            <nav className="flex flex-col gap-1">
+          <div className="mx-auto max-w-7xl px-4 py-6">
+            <nav className="flex flex-col gap-2">
               {navLinks.map((l) => (
                 <Link
                   key={l.to}
@@ -165,7 +138,7 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   activeProps={{ className: "bg-secondary text-primary font-semibold" }}
                   inactiveProps={{ className: "text-foreground hover:bg-muted" }}
-                  className="px-3 py-2.5 text-sm font-medium rounded-md transition-colors"
+                  className="px-4 py-3 text-base font-medium rounded-md transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -174,7 +147,7 @@ export function SiteHeader() {
               <Link
                 to="/contact"
                 onClick={() => setOpen(false)}
-                className="mt-2 inline-flex items-center justify-center rounded-md bg-emergency px-4 py-3 text-sm font-semibold text-emergency-foreground uppercase tracking-wider hover:opacity-90 transition-all"
+                className="mt-4 inline-flex items-center justify-center rounded-md bg-emergency px-4 py-4 text-sm font-semibold text-emergency-foreground uppercase tracking-wider hover:opacity-90 transition-all"
               >
                 GET IN TOUCH
               </Link>
