@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock, BadgeCheck, MapPin, HeartHandshake, ShieldCheck, Users } from "lucide-react";
+import lesediLogo from "@/assets/Lesedi_Funeral_Society_Logo-removebg-preview.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -36,6 +37,37 @@ function AboutPage() {
             community walks through grief alone. More than twenty years later, that mission still
             shapes everything we do.
           </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div className="rounded-3xl bg-accent/5 border border-accent/10 p-8 sm:p-12 text-center max-w-4xl mx-auto flex flex-col items-center">
+          <img src={lesediLogo} alt="Lesedi Funeral Society Logo" className="h-24 sm:h-32 mb-8 drop-shadow-xl" />
+          <p className="font-display font-semibold text-accent mb-4">Matthew 14:17-19</p>
+          <p className="text-lg sm:text-xl text-foreground italic leading-relaxed mb-8">
+            "They said to Him, 'We have here only five loaves and two fish.' And He said, 'Bring them here to Me.' Ordering the people to sit down on the grass, He took the five loaves and the two fish, and looking up toward heaven, He blessed the food, and breaking the loaves He gave them to the disciples, and the disciples gave them to the crowds."
+          </p>
+          <div className="h-px w-24 bg-accent/20 mx-auto mb-8"></div>
+          <p className="text-muted-foreground leading-relaxed text-base sm:text-lg">
+            Our logo represents an ancient symbol used by early Christians to recognise each other. It also represented the principle of gathering small possessions and multiplying them to feed multitudes of people.
+          </p>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12">
+        <div className="max-w-4xl mx-auto rounded-3xl bg-card border border-border p-8 sm:p-12">
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-6 text-center uppercase tracking-tight">Serving Your Burial Needs</h2>
+          <div className="space-y-6 text-base sm:text-lg text-muted-foreground leading-relaxed">
+            <p>
+              Lesedi Funeral Society has been serving the Klerksdorp-Orkney-Stilfontein-Hartebeesfontein communities (KOSH) for over 20 years. It opened its doors in 2001 in the Saambou Building on 30 Boom Street in Klerksdorp starting with a fax machine and a notebook.
+            </p>
+            <p>
+              The company was started by the late Mr Simon Dick after he moved from Lichtenburg to Klerksdorp following his retirement from SAPS as a warrant officer for over 35 years. With some of the very first members still part of the scheme, the company was able to survive the Covid-19 pandemic and it is still growing.
+            </p>
+            <p>
+              We treat our members with honesty, integrity and respect. We believe our first responsibility is to them and their dependants who all depend on our trusted services. Our service level is prompt and timeously.
+            </p>
+          </div>
         </div>
       </section>
 

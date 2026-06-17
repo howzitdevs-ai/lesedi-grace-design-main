@@ -16,13 +16,13 @@ export const Route = createFileRoute("/")({
 const helpItems = [
   {
     icon: Phone,
-    title: "24/7 Emergency Response",
-    body: "One call connects you to a caring advisor, any hour of the day or night.",
+    title: "Emergency Response",
+    body: "One call connects you to a caring advisor, any hour of the day from Monday to Friday.",
   },
   {
     icon: HeartHandshake,
-    title: "Personal Funeral Planning",
-    body: "We walk with you step by step — from arrangements to the service itself.",
+    title: "Funeral Cover",
+    body: "We bring funeral cover to your doorstep.",
   },
   {
     icon: ShieldCheck,
@@ -31,13 +31,13 @@ const helpItems = [
   },
   {
     icon: Users,
-    title: "Family Support",
-    body: "Grief counselling and guidance for the days, weeks and months that follow.",
+    title: "Cover Options",
+    body: "up to R50 000, guaranteed. Choose a level of cover to suit your budget",
   },
 ];
 
 const credentials = [
-  { icon: Clock, label: "20+ Years", sub: "Serving KOSH families with care" },
+  { icon: Clock, label: "20+ Years", sub: "Serving South African communities with dignity and care" },
   { icon: BadgeCheck, label: "FSP No: 9027", sub: "Authorised Financial Services Provider" },
   { icon: MapPin, label: "KOSH Community", sub: "Klerksdorp · Orkney · Stilfontein · Hartbeesfontein" },
   { icon: HeartHandshake, label: "Thousands Served", sub: "Trusted by generations of local families" },
@@ -69,8 +69,8 @@ function HomePage() {
               Standing with your family, with dignity and care.
             </h1>
             <p className="mt-6 text-lg text-primary-foreground/85 max-w-xl leading-relaxed">
-              For over 20 years, Lesedi Funeral Society has supported families across the KOSH
-              community with compassionate, professional funeral services you can trust.
+              For over 20 years, Lesedi Funeral Society has supported families across South African
+              communities with compassionate, professional funeral services you can trust.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <a
@@ -138,7 +138,7 @@ function HomePage() {
             <div className="absolute -bottom-6 -right-4 sm:-right-6 hidden sm:flex flex-col items-start rounded-2xl bg-card border border-border p-5 shadow-card max-w-[220px]">
               <span className="text-3xl font-display font-bold text-primary">20+</span>
               <span className="mt-1 text-sm text-muted-foreground leading-snug">
-                Years of trusted service to the KOSH community
+                Years of trusted service to South African communities
               </span>
             </div>
           </div>
@@ -149,7 +149,7 @@ function HomePage() {
               Two decades of trusted, dignified service.
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">
-              We are an authorised Financial Services Provider rooted in the KOSH community —
+              We are an authorised Financial Services Provider rooted in the South African communities —
               committed to honouring every life with respect, integrity and care.
             </p>
 

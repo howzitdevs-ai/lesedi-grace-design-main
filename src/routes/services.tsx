@@ -8,13 +8,13 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Our Services — Lesedi Funeral Society" },
-      { name: "description", content: "Explore our 2025 funeral cover plans. Reliable protection starting from only R31 P/M for the KOSH community." },
+      { name: "description", content: "Explore our 2026 funeral cover plans. Reliable protection starting from only R31 P/M." },
     ],
   }),
   component: ServicesPage,
 });
 
-// 2025 Business Brochure Data - Verified
+// 2026 Business Brochure Data - Verified
 const plans = [
   {
     name: "Main Member Only",
@@ -117,8 +117,7 @@ function ServicesPage() {
           <span className="text-accent">Peace of mind for you.</span>
         </h1>
         <p className="text-xl text-white/80 max-w-2xl mx-auto">
-          Reliable funeral cover starting from only **R31 P/M**. 
-          Providing 2025 protection for the KOSH community.
+          Reliable funeral cover starting from only R31 P/M. 
         </p>
       </section>
 
@@ -354,7 +353,7 @@ function ServicesPage() {
 
           <div className="mt-16 flex flex-wrap justify-center gap-10 text-xs font-bold text-gray-400 uppercase tracking-[0.2em] bg-gray-50 py-6 px-10 rounded-full border border-gray-100">
             <span>* A 6-months waiting period is applicable for natural causes.</span>
-            <span>* 2025 Brochure Rates</span>
+            <span>* 2026 Brochure Rates</span>
           </div>
         </div>
       </section>
@@ -367,7 +366,7 @@ function ServicesPage() {
             <h2 className="text-4xl font-bold text-primary font-display uppercase tracking-tight">Dignified Arrangements.</h2>
             <p className="text-xl text-gray-600 leading-relaxed">
               In your time of need, we handle every detail with respect and care. 
-              Our 2025 claims process is optimized to provide immediate relief for your family.
+              Our 2026 claims process is optimized to provide immediate relief for your family.
             </p>
             <div className="grid gap-4">
               {["No travelling costs to process claims", "Children with different surnames covered", "No exclusions for pre-existing conditions"].map((item) => (

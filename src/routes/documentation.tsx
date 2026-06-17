@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Download, FileText, BookOpen, ClipboardList } from "lucide-react";
-import brochureCover from "@/assets/brochure-cover.jpg";
-import brochureRates from "@/assets/brochure-rates.jpg";
+import brochureCover from "@/assets/cover 2.png";
+import brochureRates from "@/assets/cover.png";
 
 export const Route = createFileRoute("/documentation")({
   head: () => ({
