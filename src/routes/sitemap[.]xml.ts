@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { SITE_URL } from "@/lib/site";
 
-const BASE_URL = "";
+const BASE_URL = SITE_URL;
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -9,8 +10,10 @@ export const Route = createFileRoute("/sitemap.xml")({
       GET: async () => {
         const entries = [
           { path: "/", priority: "1.0" },
-          { path: "/services", priority: "0.8" },
+          { path: "/services", priority: "0.9" },
+          { path: "/how-to-claim", priority: "0.8" },
           { path: "/about", priority: "0.7" },
+          { path: "/documentation", priority: "0.6" },
           { path: "/contact", priority: "0.8" },
         ];
         const xml = [

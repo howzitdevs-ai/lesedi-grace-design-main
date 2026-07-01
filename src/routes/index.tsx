@@ -2,6 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Phone, ShieldCheck, HeartHandshake, Clock, Users, BadgeCheck, MapPin } from "lucide-react";
 import lesediBg from "@/assets/Lesedi Bg image.jpg";
 import lily from "@/assets/lily.jpg";
+import { QuoteCalculator } from "@/components/QuoteCalculator";
+import { Testimonials } from "@/components/Testimonials";
+import { business } from "@/lib/site";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -16,8 +19,8 @@ export const Route = createFileRoute("/")({
 const helpItems = [
   {
     icon: Phone,
-    title: "Emergency Response",
-    body: "One call connects you to a caring advisor, any hour of the day from Monday to Friday.",
+    title: "24/7 Emergency Response",
+    body: "One call connects you to a caring advisor, any hour of the day or night — 365 days a year.",
   },
   {
     icon: HeartHandshake,
@@ -80,14 +83,31 @@ function HomePage() {
                 <Phone className="h-4 w-4" />
                 Emergency Assistance
               </a>
-              <Link
-                to="/contact"
+              <a
+                href="#quote"
                 className="inline-flex items-center gap-2 rounded-full bg-primary-foreground px-6 py-3.5 text-sm font-semibold text-primary hover:bg-primary-foreground/90 transition"
               >
-                Get a Quote
+                Get an Instant Quote
                 <ArrowRight className="h-4 w-4" />
-              </Link>
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LOCAL TRUST STRIP */}
+      <section className="border-b border-border bg-card">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-2 text-center">
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Proudly serving the KOSH community:
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
+            {business.towns.map((town) => (
+              <span key={town} className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground">
+                <MapPin className="h-3.5 w-3.5 text-accent" />
+                {town}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -123,8 +143,25 @@ function HomePage() {
         </div>
       </section>
 
+      {/* INSTANT QUOTE CALCULATOR */}
+      <section className="bg-surface border-y border-border">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
+          <div className="mx-auto max-w-2xl text-center mb-10">
+            <p className="text-sm font-semibold uppercase tracking-wider text-accent">Affordable cover</p>
+            <h2 className="mt-3 text-3xl sm:text-4xl font-bold text-foreground">
+              Get your funeral cover quote in seconds.
+            </h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              Cover for your whole family from just R31 a month. No paperwork to get a price —
+              just choose your options below.
+            </p>
+          </div>
+          <QuoteCalculator />
+        </div>
+      </section>
+
       {/* CREDENTIALS / ABOUT GRID */}
-      <section className="bg-surface">
+      <section className="bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24 grid gap-12 lg:grid-cols-2 items-center">
           <div className="relative">
             <img
@@ -174,6 +211,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* TESTIMONIALS */}
+      <Testimonials />
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">

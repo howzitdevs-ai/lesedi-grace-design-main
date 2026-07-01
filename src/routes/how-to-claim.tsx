@@ -1,7 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FileText, Clock, ShieldCheck, HelpCircle, ArrowRight, ClipboardCheck } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { FaqAccordion } from "@/components/FaqAccordion";
+import { FaqAccordion, faqs } from "@/components/FaqAccordion";
+import { JsonLd } from "@/components/JsonLd";
+import { faqSchema } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/how-to-claim")({
   head: () => ({
@@ -44,6 +46,7 @@ const requirements = [
 function HowToClaimPage() {
   return (
     <div className="animate-in fade-in duration-700">
+      <JsonLd data={faqSchema(faqs)} />
       <section className="bg-surface border-b border-border">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
           <p className="text-sm font-semibold uppercase tracking-wider text-primary">How to Claim</p>

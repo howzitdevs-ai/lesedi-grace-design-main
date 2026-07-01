@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://www.lesedifuneralsociety.co.za/sitemap.xml

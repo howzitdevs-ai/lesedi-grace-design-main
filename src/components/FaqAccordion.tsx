@@ -3,10 +3,10 @@ import { ChevronDown } from "lucide-react";
 
 interface FAQ {
   question: string;
-  answer: React.ReactNode;
+  answer: string;
 }
 
-const faqs: FAQ[] = [
+export const faqs: FAQ[] = [
   {
     question: "What should I do immediately after a loved one passes away?",
     answer: "If the passing happens at home, contact emergency services (10111) or your doctor to certify the death. If it happens in a hospital, the hospital staff will assist with the initial certification. Contact our 24/7 emergency line as soon as possible so we can arrange the transfer of your loved one into our care.",

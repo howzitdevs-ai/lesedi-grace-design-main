@@ -1,8 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { CheckCircle2, ArrowRight, ShieldCheck, Users, Plus, X, ChevronRight, FileText } from "lucide-react";
+import { CheckCircle2, ArrowRight, Plus, X, FileText } from "lucide-react";
 import { useState } from "react";
 import ld1 from "@/assets/LD 1.png";
-import ld2 from "@/assets/LD 2.png";
+import {
+  plans,
+  familyIncomeBands,
+  extendedFamilyBands,
+  spouseChildrenBenefits,
+} from "@/lib/rates";
+import { QuoteCalculator } from "@/components/QuoteCalculator";
+import { JsonLd } from "@/components/JsonLd";
+import { serviceSchema } from "@/lib/structured-data";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -14,72 +22,12 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
-// 2026 Business Brochure Data - Verified
-const plans = [
-  {
-    name: "Main Member Only",
-    details: "Covers the main member only.",
-    bands: [
-      { age: "18 - 65", r10k: "R62", r15k: "R80", r20k: "R98", r30k: "R135", r50k: "R208" },
-      { age: "66 - 75", r10k: "R125", r15k: "R175", r20k: "R225", r30k: "R325", r50k: "R526" },
-      { age: "76 - 80", r10k: "R237", r15k: "R343", r20k: "R449", r30k: "-", r50k: "-" },
-      { age: "81 - 85", r10k: "R337", r15k: "-", r20k: "-", r30k: "-", r50k: "-" },
-    ]
-  },
-  {
-    name: "Main Member & Spouse",
-    details: "Covers main member and spouse.",
-    bands: [
-      { age: "18 - 65", r10k: "R83", r15k: "R113", r20k: "R142", r30k: "R200", r50k: "R317" },
-      { age: "66 - 75", r10k: "R186", r15k: "R266", r20k: "R364", r30k: "R507", r50k: "R828" },
-    ]
-  },
-  {
-    name: "Main Member & up to 6 Children",
-    details: "Covers main member and up to 6 children.",
-    bands: [
-      { age: "18 - 65", r10k: "R80", r15k: "R107", r20k: "R135", r30k: "R190", r50k: "R299" },
-      { age: "66 - 75", r10k: "R175", r15k: "R251", r20k: "R326", r30k: "R476", r50k: "R777" },
-    ]
-  },
-  {
-    name: "Main Member, Spouse & up to 6 Children",
-    details: "Covers main member, spouse, and up to 6 children.",
-    bands: [
-      { age: "18 - 65", r10k: "R113", r15k: "R157", r20k: "R200", r30k: "R288", r50k: "R463" },
-      { age: "66 - 75", r10k: "R266", r15k: "R386", r20k: "R506", r30k: "R747", r50k: "R1,228" },
-    ]
-  }
-];
-
-const familyIncomeBands = [
-  { age: "18 - 65", duration: "6", premium: "R45" },
-  { age: "66 - 75", duration: "6", premium: "R80" },
-  { age: "18 - 65", duration: "12", premium: "R60" },
-  { age: "66 - 75", duration: "12", premium: "R110" },
-];
-
-const extendedFamilyBands = [
-  { age: "0 - 17", cover: "R5,000", premium: "R10" },
-  { age: "18 - 65", cover: "R10,000", premium: "R65" },
-  { age: "66 - 75", cover: "R10,000", premium: "R130" },
-  { age: "76 - 80", cover: "R10,000", premium: "R297" },
-  { age: "81 - 85", cover: "R10,000", premium: "R468" },
-];
-
-const spouseChildrenBenefits = [
-  { age: "Stillbirth* to 11 months", cover: "12.50%" },
-  { age: "1 to 5 years", cover: "25.00%" },
-  { age: "6 to 13 years", cover: "50.00%" },
-  { age: "14 to 21 years", cover: "100.00%" },
-  { age: "Spouse", cover: "100.00%" },
-];
-
 function ServicesPage() {
   const [selectedCategory, setSelectedCategory] = useState<null | { name: string, details: string }>(null);
 
   return (
     <div className="bg-white">
+      <JsonLd data={serviceSchema()} />
       {/* Category Detail Modal */}
       {selectedCategory && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/80">
@@ -117,8 +65,23 @@ function ServicesPage() {
           <span className="text-accent">Peace of mind for you.</span>
         </h1>
         <p className="text-xl text-white/80 max-w-2xl mx-auto">
-          Reliable funeral cover starting from only R31 P/M. 
+          Reliable funeral cover starting from only R31 P/M.
         </p>
+      </section>
+
+      {/* Instant Quote Calculator */}
+      <section className="bg-gray-50 border-b border-gray-100 py-20 px-4">
+        <div className="mx-auto max-w-7xl">
+          <div className="mx-auto max-w-2xl text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary font-display uppercase tracking-tight">
+              Build your quote
+            </h2>
+            <p className="mt-4 text-lg text-gray-600">
+              Pick your plan, age and cover amount to see your exact monthly premium — then apply in one tap.
+            </p>
+          </div>
+          <QuoteCalculator />
+        </div>
       </section>
 
       {/* Rates Tables Section - Brochure Layout */}
