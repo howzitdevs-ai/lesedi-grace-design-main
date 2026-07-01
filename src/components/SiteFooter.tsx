@@ -12,7 +12,7 @@ export function SiteFooter() {
             <span className="font-display font-semibold text-lg">Lesedi Funeral Society</span>
           </div>
           <p className="mt-4 text-sm text-primary-foreground/75 max-w-md leading-relaxed">
-            Compassionate, dignified funeral services for the KOSH community. Standing with families
+            Compassionate, dignified funeral services for local families. Standing with families
             through life's most difficult moments, with care, respect, and integrity.
           </p>
           <p className="mt-4 text-xs text-primary-foreground/60">
@@ -25,7 +25,7 @@ export function SiteFooter() {
           <ul className="mt-4 space-y-3 text-sm text-primary-foreground/75">
             <li className="flex gap-3">
               <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-              <span>KOSH Community<br />North West, South Africa</span>
+              <span>Klerksdorp, North West<br />South Africa</span>
             </li>
             <li className="flex gap-3">
               <Phone className="h-4 w-4 mt-0.5 shrink-0" />

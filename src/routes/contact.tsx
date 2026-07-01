@@ -6,9 +6,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Us — Lesedi Funeral Society" },
-      { name: "description", content: "Get in touch with Lesedi Funeral Society. 24/7 emergency line, request a call back, or visit us in the KOSH community." },
+      { name: "description", content: "Get in touch with Lesedi Funeral Society. 24/7 emergency line, request a call back, or visit us in Klerksdorp." },
       { property: "og:title", content: "Contact Lesedi Funeral Society" },
-      { property: "og:description", content: "Speak to a caring advisor — 24/7 support for families in KOSH." },
+      { property: "og:description", content: "Speak to a caring advisor — 24/7 support for local families." },
     ],
   }),
   component: ContactPage,
@@ -80,14 +80,14 @@ function ContactPage() {
 
           <div className="rounded-2xl bg-card border border-border p-6 space-y-5">
             <InfoRow icon={Mail} label="Email" value="Lesedifuneralsociety@gmail.com" href="mailto:Lesedifuneralsociety@gmail.com" />
-            <InfoRow icon={MapPin} label="Visit" value={<>KOSH Community<br />North West, South Africa</>} />
+            <InfoRow icon={MapPin} label="Visit" value={<>Klerksdorp, North West<br />South Africa</>} />
             <InfoRow icon={Clock} label="Office Hours" value={<>Mon – Fri · 08:00 – 17:00<br />Emergency line · 24/7</>} />
           </div>
 
           <div className="rounded-2xl bg-primary text-primary-foreground p-6">
             <p className="font-display font-semibold">FSP No: 9027</p>
             <p className="mt-1 text-sm text-primary-foreground/75">
-              Authorised Financial Services Provider serving the KOSH community.
+              Authorised Financial Services Provider serving our local community.
             </p>
           </div>
         </div>

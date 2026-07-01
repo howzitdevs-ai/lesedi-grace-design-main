@@ -6,18 +6,18 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Us — Lesedi Funeral Society" },
-      { name: "description", content: "Over 20 years of compassionate funeral service in the KOSH community. Authorised FSP No: 9027." },
+      { name: "description", content: "Over 20 years of compassionate funeral service in Klerksdorp, Orkney, Stilfontein and Hartbeesfontein. Authorised FSP No: 9027." },
       { property: "og:title", content: "About Lesedi Funeral Society" },
-      { property: "og:description", content: "Two decades of dignified, trusted funeral care for KOSH families." },
+      { property: "og:description", content: "Two decades of dignified, trusted funeral care for local families." },
     ],
   }),
   component: AboutPage,
 });
 
 const features = [
-  { icon: Clock, label: "20+ Years of Service", body: "Two decades of standing alongside KOSH families through their most difficult moments." },
+  { icon: Clock, label: "20+ Years of Service", body: "Two decades of standing alongside local families through their most difficult moments." },
   { icon: BadgeCheck, label: "FSP No: 9027", body: "Authorised Financial Services Provider — fully licensed, fully accountable." },
-  { icon: MapPin, label: "Rooted in KOSH", body: "Klerksdorp, Orkney, Stilfontein and Hartbeesfontein — your community is our community." },
+  { icon: MapPin, label: "Rooted Locally", body: "Klerksdorp, Orkney, Stilfontein and Hartbeesfontein — your community is our community." },
   { icon: HeartHandshake, label: "Compassion First", body: "We listen before we plan. Every family receives personal, unhurried attention." },
   { icon: ShieldCheck, label: "Transparent & Honest", body: "Clear pricing, clear plans and clear communication — no surprises, ever." },
   { icon: Users, label: "A Caring Team", body: "Local advisors, dignified staff, and pastoral support who treat your family like ours." },
@@ -30,7 +30,7 @@ function AboutPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 sm:py-24">
           <p className="text-sm font-semibold uppercase tracking-wider text-accent">About Us</p>
           <h1 className="mt-3 text-4xl sm:text-5xl font-bold text-foreground max-w-3xl leading-tight">
-            Caring for KOSH families with dignity, since 2003.
+            Caring for local families with dignity, since 2003.
           </h1>
           <p className="mt-5 text-lg text-muted-foreground max-w-2xl leading-relaxed">
             Lesedi Funeral Society was founded with a single purpose: to make sure no family in our

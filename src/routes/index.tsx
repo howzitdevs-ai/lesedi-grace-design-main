@@ -9,8 +9,8 @@ import { business } from "@/lib/site";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Lesedi Funeral Society — Compassionate Care for the KOSH Community" },
-      { name: "description", content: "Dignified, compassionate funeral services for families in KOSH. 24/7 emergency assistance. FSP No: 9027." },
+      { title: "Lesedi Funeral Society — Affordable Funeral Cover in the North West" },
+      { name: "description", content: "Dignified, compassionate funeral cover for families in Klerksdorp, Orkney, Stilfontein and Hartbeesfontein. 24/7 emergency assistance. FSP No: 9027." },
     ],
   }),
   component: HomePage,
@@ -42,7 +42,7 @@ const helpItems = [
 const credentials = [
   { icon: Clock, label: "20+ Years", sub: "Serving South African communities with dignity and care" },
   { icon: BadgeCheck, label: "FSP No: 9027", sub: "Authorised Financial Services Provider" },
-  { icon: MapPin, label: "KOSH Community", sub: "Klerksdorp · Orkney · Stilfontein · Hartbeesfontein" },
+  { icon: MapPin, label: "Local Roots", sub: "Klerksdorp · Orkney · Stilfontein · Hartbeesfontein" },
   { icon: HeartHandshake, label: "Thousands Served", sub: "Trusted by generations of local families" },
 ];
 
@@ -99,7 +99,7 @@ function HomePage() {
       <section className="border-b border-border bg-card">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-center gap-x-8 gap-y-2 text-center">
           <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-            Proudly serving the KOSH community:
+            Proudly serving our community:
           </span>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1">
             {business.towns.map((town) => (

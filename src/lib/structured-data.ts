@@ -18,7 +18,7 @@ export function localBusinessSchema() {
     foundingDate: business.foundingYear,
     slogan: business.tagline,
     description:
-      "Authorised Financial Services Provider (FSP 9027) offering affordable, dignified funeral cover to families across the KOSH community — Klerksdorp, Orkney, Stilfontein and Hartbeesfontein.",
+      "Authorised Financial Services Provider (FSP 9027) offering affordable, dignified funeral cover to families across Klerksdorp, Orkney, Stilfontein and Hartbeesfontein.",
     address: {
       "@type": "PostalAddress",
       streetAddress: business.streetAddress,
